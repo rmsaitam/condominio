@@ -1,25 +1,9 @@
 version: '3'
 services:
 
-  #MySQL Service
-  db:
-    image: mysql:5.7.22
-    container_name: mysql_condominio
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=condominio
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=user 
-    volumes:
-      - ./dbdata:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
-
-  #PHP Service
+#PHP Service
   php:
-    build:
-      context: ./php7.2-fpm
+    build: ./php7.2-fpm
     container_name: php_condominio
     depends_on:
       - db
@@ -44,6 +28,21 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./nginx/default:/etc/nginx/conf.d/default.conf
+  
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: mysql_condominio
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=condominio
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user 
+    volumes:
+      - ./dbdata:/var/lib/mysql/
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
     
 volumes:
   mysql-data:
