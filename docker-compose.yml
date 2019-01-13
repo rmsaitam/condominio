@@ -31,7 +31,7 @@ services:
   
   #MySQL Service
   db:
-    image: mysql:5.7.22
+    image: mysql:5.7
     container_name: mysql_condominio
     ports:
       - "3306:3306"
