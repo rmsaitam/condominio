@@ -24,7 +24,7 @@ services:
       - ./src:/var/www/html
       - ./php7.2-fpm/local.ini:/usr/local/etc/php/conf.d/local.ini
     ports:
-      - "8080:80"
+      - "8080:8080"
     volumes:
       - ./src:/var/www/html
       - ./nginx/default:/etc/nginx/conf.d/default.conf
@@ -43,7 +43,4 @@ services:
     volumes:
       - ./dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-    
-volumes:
-  mysql-data:
-    driver: "local"
+  
