@@ -23,10 +23,10 @@ Route::post('/Painel/produtos/store','Painel\ProdutoController@store');
 Route::resource('/painel/produtos','Painel\ProdutoController');
 */
 
-/*Route::group(['namespace' => 'Site'],function(){
+Route::group(['namespace' => 'Site'],function(){
   Route::get('/contato',[ 'as' => 'contato', 'uses' => 'SiteController@contato']);
   Route::resource('/','SiteController');
-});*/
+});
 
 //Rotas de Autenticação
 
